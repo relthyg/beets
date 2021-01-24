@@ -534,7 +534,7 @@ class ITunesStore(RemoteArtSource):
             return
 
         payload = {
-            'term': album.albumartist + u' ' + album.album,
+            'term': album.albumartist + u' ' + re.sub(r' \(.*\)$', '', album.album),
             'entity': u'album',
             'media': u'music',
             'limit': 200
